@@ -1,0 +1,82 @@
+<div ui-content-for="title">
+  <span>订单管理</span>
+</div>
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class='section'>
+      
+
+  </div>
+</div>
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="section">
+	
+	<ui-state id='activeTab' default='2'></ui-state>
+
+      <ul class="nav nav-tabs">
+        <li ui-class="{'active': activeTab == 1}">
+          <a ui-set="{'activeTab': 1}">保养订单</a>
+        </li>
+        <li ui-class="{'active': activeTab == 2}">
+          <a ui-set="{'activeTab': 2}">商品订单</a>
+        </li>
+        
+      </ul>
+
+      <div ui-if="activeTab == 1">
+        <h3 class="page-header"></h3>
+        <p>{{lorem}}</p>
+      </div>
+
+      <div ui-if="activeTab == 2">
+        <h3 class="page-header"></h3>
+              <div class="panel-group" 
+        
+        ui-state='myAccordion' 
+        ui-default='2'>
+
+        <div class="panel panel-default" ng-repeat="i in [1,2,3]">
+          <div class="panel-heading" ui-set="{'myAccordion': i}">
+        
+            <h4 class="panel-title">
+                订单详情：编号BMW201500000{{i}}
+            </h4>
+          </div>
+          <!-- 
+            use uiScopeContext to use scope vars in ui-if/ui-hide/ui-show/ui-class expression 
+            ie.
+            <div ui-hide="sharedState1 == myVar1 && sharedState2 == myVar2"
+              ui-scope-context="myVar1, myVar2"
+            >
+            </div>
+
+            Be aware that scope vars will take precedence over sharedStates so,
+            in order to avoid name clashes you can use 'as' to refer to scope vars
+            with a different name in conditions:
+
+            <div ui-hide="x == myVar1 && y == myVar2"
+              ui-scope-context="x as myVar1, y as myVar2"
+            >
+            </div>
+          -->
+          <div ui-if="myAccordion == i" ui-scope-context='i'>
+            <div class="panel-body">
+			  购买时间：2015-02-15<br/>
+			  产品名称：刹车盘<br/>
+			  产品型号：5SXDR234<br/>
+			  产品数量：1
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+      </div>  
+    </div>
+
+    </div>
+  </div>
+</div>

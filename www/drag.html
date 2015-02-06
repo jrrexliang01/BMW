@@ -1,0 +1,21 @@
+<div ui-content-for="title">
+  <span>通知</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-header alert alert-info">
+    向右滑动以移除通知内容!
+  </div>
+  <div class="scrollable-content">
+    <div class="container-fluid">
+      <div class="notices-container">
+        <div ng-repeat="notice in notices"
+          drag-to-dismiss="deleteNotice(notice)"
+          class="section section-break">
+          <i class="fa fa-{{notice.icon}}"></i> {{notice.message}}
+        </div>
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
